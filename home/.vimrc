@@ -1,0 +1,80 @@
+set nocompatible              " be iMproved
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My bundles here:
+"
+" original repos on GitHub
+Bundle 'kien/ctrlp.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'godlygeek/tabular'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-fugitive'
+Bundle 'techlivezheng/vim-plugin-minibufexpl'
+Bundle 'mhinz/vim-signify'
+Bundle 'bling/vim-airline'
+" ...
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
+
+imap jj <Esc>
+
+" Remap for vim-tmux-navigator
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Easy align for js/yml
+vmap <Leader>a :Tab /:\zs<CR>
+
+"set splitbelow
+"set splitright
+syntax enable
+
+" Colors
+set t_Co=256
+set background=dark
+colorscheme solarized
+
+" Search settings
+set hlsearch
+set incsearch
+
+" Indentation settings
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set ai
+
+" Airline settings
+set laststatus=2
+" Hide default mode indicator
+set noshowmode
+"let g:airline_powerline_fonts = 1
+"if !exists('g:airline_symbols')
+"  let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.space = "\ua0"
+"
+" CtrlP settings
+let g:ctrlp_open_new_file = 'v'
+set ttimeoutlen=50
