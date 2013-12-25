@@ -1,0 +1,8 @@
+#!/bin/sh
+xrdb -merge .Xresources
+setxkbmap -model pc105 -layout us,gr -variant ,simple -option grp:alt_space_toggle
+xmodmap .swap-caps-esc
+pcmanfm --daemon-mode &
+[ -f "$HOME/.fehbg" ] && source "$HOME/.fehbg"
+# exec i3
+

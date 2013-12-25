@@ -1,0 +1,15 @@
+[core]
+	editor = vim
+[user]
+	email = alxarch@gmail.com
+	name = Alexandros Sigalas
+[push]
+	default = simple
+[gui]
+	editor = vim
+	historybrowser = gitk
+[diff]
+	tool = vimdiff
+	algorithm = patience
+[merge]
+	tool = vimdiff
