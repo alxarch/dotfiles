@@ -16,10 +16,10 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'godlygeek/tabular'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'scrooloose/nerdtree'
+"Bundle 'christoomey/vim-tmux-navigator'
+"Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
-Bundle 'techlivezheng/vim-plugin-minibufexpl'
+"Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'mhinz/vim-signify'
 Bundle 'bling/vim-airline'
 " ...
@@ -56,7 +56,7 @@ set background=dark
 colorscheme solarized
 
 " Search settings
-set hlsearch
+"set hlsearch
 set incsearch
 
 " Indentation settings
@@ -64,6 +64,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set ai
+
+set relativenumber
+set nu
 
 " Airline settings
 set laststatus=2
@@ -78,3 +81,11 @@ set noshowmode
 " CtrlP settings
 let g:ctrlp_open_new_file = 'v'
 set ttimeoutlen=50
+
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+ 
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+let g:solarized_visibility='low'
