@@ -6,4 +6,4 @@
 	url = https://github.com/revans/bash-it.git
 [submodule "home/.oh-my-zsh"]
 	path = home/.oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
+	url = https://github.com/alxarch/oh-my-zsh.git
