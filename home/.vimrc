@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My bundles here:
@@ -20,6 +20,9 @@ Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mhinz/vim-signify'
 Bundle 'bling/vim-airline'
+Bundle 'Shutnik/jshint2.vim'
+Bundle 'ervandew/supertab'
+"Bundle 'mattn/emmet-vim'
 " ...
 
 filetype plugin indent on     " required!
@@ -83,7 +86,14 @@ set ttimeoutlen=50
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
- 
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 let g:solarized_visibility='low'
+
+" Emmet remap
+"let g:user_emmet_leader_key='<C-e>'
+
+nmap <Leader>j :JSHint<CR>
+
+nnoremap K i<Enter><Esc>
