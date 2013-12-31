@@ -51,23 +51,28 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/alxarch/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl"
+if [ -d "$HOME/.local/bin" ]; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Java settings
+# https://wiki.archlinux.org/index.php/Java_Fonts_Sun_JRE
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# Add BaseX jar to the CLASSPATH
+if [ -d "$HOME/apps/basex" ]; then
+	export PATH="$HOME/apps/basex/bin:$PATH"
+	export CLASSPATH="$HOME/apps/basex/BaseX.jar:$CLASSPATH"
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export EDITOR='vim'
 bindkey -v
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+bindkey '^R' history-incremental-search-backward
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+alias rr=ranger
+alias vzsh='vim "$HOME/.zshrc" && source "$HOME/.zshrc"'
+alias vvrc='vim "$HOME/.vimrc"'
 
 source $HOME/.homesick/repos/homeshick/homeshick.sh
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
