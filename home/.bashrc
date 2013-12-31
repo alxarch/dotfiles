@@ -56,4 +56,4 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\n\$ "'
 
 export TERM='xterm-256color'
-source $HOME/.homesick/repos/homesick/homesick.sh
+source $HOME/.homesick/repos/homeshick/homeshick.sh
