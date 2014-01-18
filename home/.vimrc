@@ -22,6 +22,7 @@ Bundle 'mhinz/vim-signify'
 Bundle 'bling/vim-airline'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'ervandew/supertab'
+Bundle 'wavded/vim-stylus'
 "Bundle 'mattn/emmet-vim'
 " ...
 
