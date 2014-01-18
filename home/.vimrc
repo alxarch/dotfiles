@@ -97,3 +97,12 @@ let g:solarized_visibility='low'
 nmap <Leader>j :JSHint<CR>
 
 nnoremap K i<Enter><Esc>
+set directory=~/.vim/swap
+
+set undodir=~/.vim/backups
+set undofile
+
+set backupdir=~/.vim/backups
+set backup
+set writebackup
+set backupcopy=auto
