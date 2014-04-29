@@ -6,24 +6,25 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles here:
 "
 " original repos on GitHub
-Bundle 'kien/ctrlp.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'jeroenp/vim-xquery-syntax'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-fugitive'
-Bundle 'mhinz/vim-signify'
-Bundle 'bling/vim-airline'
-Bundle 'Shutnik/jshint2.vim'
-Bundle 'ervandew/supertab'
-Bundle 'wavded/vim-stylus'
-"Bundle 'mattn/emmet-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'jeroenp/vim-xquery-syntax'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'
+Plugin 'bling/vim-airline'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'ervandew/supertab'
+Plugin 'wavded/vim-stylus'
+Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'mattn/emmet-vim'
 " ...
 
 filetype plugin indent on     " required!
