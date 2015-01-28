@@ -1,0 +1,2 @@
+bind status C !git commit --verbose
+bind status A !git commit --verbose --amend
