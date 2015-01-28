@@ -24,6 +24,7 @@ Bundle 'mhinz/vim-signify'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'ervandew/supertab'
 Plugin 'itchyny/lightline.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 " ...
 
 filetype plugin indent on     " required!
