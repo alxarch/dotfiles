@@ -1,0 +1,4 @@
+#!/bin/sh
+xrdb -merge .Xresources
+setxkbmap -model pc105 -layout us,gr -variant ,simple -option grp:shifts_toggle,caps:escape,altwin:swap_alt_win
+

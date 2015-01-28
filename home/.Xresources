@@ -1,0 +1,13 @@
+#include ".solarized"
+Xft.dpi: 96
+
+URxvt.iconFile:  /usr/share/icons/Humanity/apps/128/gnome-terminal.svg
+URxvt.scrollBar: false
+! Misc Programs
+!URxvt*font: xft:monospace:style=Regular:pixelsize=12 
+!URxvt*font: xft:Terminus:style=Regular:pixelsize=16 
+!URxvt*font: xft:monospace:style=Regular:pixelsize=16 
+URxvt*font: xft:DejaVu Sans Mono:style=Regular:pixelsize=12 
+!URxvt*font: xft:Ubuntu Mono:style=Regular:pixelsize=16
+URxvt*letterSpace: -1
+
