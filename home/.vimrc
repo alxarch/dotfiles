@@ -113,3 +113,4 @@ set writebackup
 set backupcopy=auto
 
 set wildignore+=*/node_modules/*,*/bower_components/*
+nmap <leader>g :!tig status<CR>
