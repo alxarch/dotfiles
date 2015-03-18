@@ -47,7 +47,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Easy align for js/yml
-vmap <Leader>a :Tab /:\zs<CR>
+vmap <Leader>a :Tab /\zs:<CR>
 
 set splitbelow
 set splitright
