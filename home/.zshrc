@@ -14,3 +14,8 @@ fi
 source $HOME/.homesick/repos/homeshick/homeshick.sh
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 bindkey '^R' history-incremental-search-backward
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
