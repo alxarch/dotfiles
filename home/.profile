@@ -22,3 +22,4 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 EDITOR=vim
+VISUAL=vim
