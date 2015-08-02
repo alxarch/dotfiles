@@ -12,7 +12,7 @@ Bundle 'gmarik/vundle'
 "
 " original repos on GitHub
 Bundle 'altercation/vim-colors-solarized'
-
+Bundle 'mintplant/vim-literate-coffeescript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'jeroenp/vim-xquery-syntax'
 Bundle 'digitaltoad/vim-jade'
