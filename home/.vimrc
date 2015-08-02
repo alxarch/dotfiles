@@ -24,6 +24,8 @@ Plugin 'Shutnik/jshint2.vim'
 Plugin 'ervandew/supertab'
 Plugin 'itchyny/lightline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
 " ...
 
 call vundle#end()
