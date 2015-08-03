@@ -1,32 +1,33 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.Vim'
 
 " My bundles here:
 "
 " original repos on GitHub
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'jeroenp/vim-xquery-syntax'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'wavded/vim-stylus'
 
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'jeroenp/vim-xquery-syntax'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-
-Bundle 'kien/ctrlp.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'mhinz/vim-signify'
-Bundle 'Shutnik/jshint2.vim'
-Bundle 'ervandew/supertab'
+Plugin 'kien/ctrlp.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'mhinz/vim-signify'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'ervandew/supertab'
 Plugin 'itchyny/lightline.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'shime/vim-livedown'
+Plugin 'shime/vim-livedown'
+Plugin 'christoomey/vim-tmux-navigator'
 " ...
+
+call vundle#end()
 
 filetype plugin indent on     " required!
 "
