@@ -14,3 +14,5 @@ fi
 source $HOME/.homesick/repos/homeshick/homeshick.sh
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 bindkey '^R' history-incremental-search-backward
+
+source $HOME/.dynamic-colors/completions/dynamic-colors.zsh

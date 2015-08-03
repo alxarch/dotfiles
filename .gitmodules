@@ -5,5 +5,5 @@
 	path = home/.vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
 [submodule "home/dynamic-colors"]
-	path = home/dynamic-colors
+	path = home/.dynamic-colors
 	url = https://github.com/sos4nt/dynamic-colors
