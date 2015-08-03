@@ -118,3 +118,7 @@ set backupcopy=auto
 
 set wildignore+=*/node_modules/*,*/bower_components/*
 nmap <leader>g :!tig status<CR>
+
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+autocmd BufNewFile,BufReadPost *.litcoffee setl foldmethod=indent nofoldenable
+autocmd FileType litcoffee runtime ftplugin/coffee.vim
