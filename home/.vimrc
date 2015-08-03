@@ -25,6 +25,7 @@ Bundle 'Shutnik/jshint2.vim'
 Bundle 'ervandew/supertab'
 Plugin 'itchyny/lightline.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'shime/vim-livedown'
 " ...
 
 filetype plugin indent on     " required!
@@ -91,6 +92,9 @@ set ttimeoutlen=50
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
+
+" Shortcut for live markdown preview
+nmap <leader>m :LivedownPreview<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
