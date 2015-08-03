@@ -16,3 +16,6 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 bindkey '^R' history-incremental-search-backward
 
 source $HOME/.dynamic-colors/completions/dynamic-colors.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
