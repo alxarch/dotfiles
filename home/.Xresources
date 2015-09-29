@@ -10,4 +10,5 @@ URxvt.scrollBar: false
 URxvt*font: xft:DejaVu Sans Mono:style=Regular:pixelsize=12 
 !URxvt*font: xft:Ubuntu Mono:style=Regular:pixelsize=16
 URxvt*letterSpace: -1
+URxvt*dynamicColors: true
 

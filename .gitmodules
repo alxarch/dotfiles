@@ -1,3 +1,6 @@
 [submodule "home/.zprezto"]
 	path = home/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "home/dynamic-colors"]
+	path = home/.dynamic-colors
+	url = https://github.com/sos4nt/dynamic-colors

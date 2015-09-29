@@ -23,6 +23,7 @@ Plugin 'mhinz/vim-signify'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'ervandew/supertab'
 Plugin 'itchyny/lightline.vim'
+Plugin 'shime/vim-livedown'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
@@ -50,7 +51,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Easy align for js/yml
-vmap <Leader>a :Tab /:\zs<CR>
+vmap <Leader>a :Tab /\zs:<CR>
 
 set splitbelow
 set splitright
@@ -95,6 +96,9 @@ set ttimeoutlen=50
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
+" Shortcut for live markdown preview
+nmap <leader>m :LivedownPreview<CR>
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 let g:solarized_visibility='low'
@@ -117,3 +121,13 @@ set backupcopy=auto
 
 set wildignore+=*/node_modules/*,*/bower_components/*
 nmap <leader>g :!tig status<CR>
+
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+autocmd BufNewFile,BufReadPost *.litcoffee setl foldmethod=indent nofoldenable
+autocmd FileType litcoffee runtime ftplugin/coffee.vim
+
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
