@@ -123,3 +123,9 @@ nmap <leader>g :!tig status<CR>
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 autocmd BufNewFile,BufReadPost *.litcoffee setl foldmethod=indent nofoldenable
 autocmd FileType litcoffee runtime ftplugin/coffee.vim
+
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
