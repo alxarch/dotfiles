@@ -21,3 +21,9 @@ export PATH="$PATH:$HOME/.dynamic-colors/bin"
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/alxarch/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/home/alxarch/google-cloud-sdk/completion.zsh.inc'
