@@ -102,5 +102,5 @@ alias dcd='dynamic-colors switch solarized-dark'
 
 # Avoid mistakes with glob patterns
 alias rm='rm -I'
-alias dotfiles='git --git-dir=$HOME/.dotfilesrepo --work-tree=$HOME'
+alias dotfiles='git --git-dir=$HOME/.dotgit --work-tree=$HOME'
 
