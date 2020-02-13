@@ -1,0 +1,11 @@
+#!/bin/sh
+# Better Java looks
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# QT
+export QT_QPA_PLATFORMTHEME="qt5ct"
+# Fix atom trash error
+export ELECTRON_TRASH=gio
+
+if [ -d "$HOME/.nix-profile" ]; then
+	export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.local/share:"${XDG_DATA_DIRS:-/usr/local/share/:/usr/share/}"
+fi

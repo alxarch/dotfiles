@@ -1,0 +1,36 @@
+!#include ".base16-solarized-dark-256"
+#include ".solarized"
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: none
+Xft.hinting: true
+!lcddefault lcdlight
+!Xft.lcdfilter: lcdnone
+Xft.lcdfilter: lcdlight
+!hintslight hintfull
+Xft.hintstyle: hintsfull
+
+URxvt.iconFile:  /usr/share/icons/Humanity/apps/128/gnome-terminal.svg
+URxvt.scrollBar: false
+! Misc Programs
+URxvt*font: xft:Droid Sans Mono:style=Regular:pixelsize=16
+!URxvt*font: xft:Terminus:style=Regular:pixelsize=16 
+
+!URxvt*font: xft:Dejavu Sans Mono:style=Regular:pixelsize=14
+!URxvt*letterSpace: -1
+URxvt*dynamicColors: true
+URxvt.internalBorder: 0
+URxvt.borderColor: S_base03
+! Disable dimming
+URxvt*fading:  10
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher:  firefox
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+
+!rofi config
+rofi.modi: drun,run
+rofi.theme: /usr/share/rofi/themes/solarized_alternate.rasi
+
