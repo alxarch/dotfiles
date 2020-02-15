@@ -2,24 +2,43 @@
 # Executes commands at the start of an interactive session.
 #
 
-source <(antibody init)
-antibody bundle ohmyzsh/ohmyzsh path:plugins/gitfast # git shell tools
-antibody bundle akz92/clean # clean theme
-antibody bundle zsh-users/zsh-completions # completions
-antibody bundle zsh-users/zsh-syntax-highlighting # syntax highlight
+#
+# Browser
+#
 
-autoload -Uz compinit
-autoload -Uz bashcompinit
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
-	bashcompinit;
-else
-	compinit -C;
+if [[ "$OSTYPE" == darwin* ]]; then
+  export BROWSER='open'
+fi
+
+#
+# Editors
+#
+
+export EDITOR='vim'
+export VISUAL='vim'
+
+#
+# Less
+#
+
+export PAGER='less'
+
+# Set the default Less options.
+# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
+# Remove -X and -F (exit if the content fits on one screen) to enable it.
+# -r color
+export LESS='-F -r -g -i -M -R -w -X -z-4'
+
+# Set the Less input preprocessor.
+# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
+if (( $#commands[(i)lesspipe(|.sh)] )); then
+  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
 # Edit commandline in vim
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
 
 # HISTORY
 export HISTFILE=~/.zhistory
@@ -40,30 +59,25 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP  
 
 setopt PROMPT_SUBST
+# FZF
+if [ -d /usr/share/fzf ]; then
+	. /usr/share/fzf/key-bindings.zsh
+	. /usr/share/fzf/completion.zsh
+fi
 
-# source $HOME/.homesick/repos/homeshick/homeshick.sh
-# fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+source <(antibody init)
+antibody bundle ohmyzsh/ohmyzsh path:plugins/gitfast # git shell tools
+antibody bundle akz92/clean # clean theme
+antibody bundle zsh-users/zsh-completions # completions
+antibody bundle zsh-users/zsh-syntax-highlighting # syntax highlight
 
-# Enable dynamic colors
-# source $HOME/.dynamic-colors/completions/dynamic-colors.zsh
-# export PATH="$PATH:$HOME/.dynamic-colors/bin"
-# alias dcl='dynamic-colors switch solarized-light-desaturated'
-# alias dcd='dynamic-colors switch solarized-dark'
+autoload -Uz compinit
+autoload -Uz bashcompinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+	bashcompinit;
+else
+	compinit -C;
+fi
 
-# Avoid mistakes with glob patterns
-alias rm='rm -I'
-
-# Handle dotfiles
-alias dotfiles='GIT_DIR="$HOME/.dotfiles" GIT_WORK_TREE="$HOME" git'
-alias scl='sudo systemctl'
-
-# Kubernetes aliases
-alias kcl='kubectl'
-alias kCf='kubectl create -f'
-alias kAf='kubectl apply -f'
-alias kDf='kubectl delete -f'
-alias kgp='kubectl get pod -o wide'
-alias kgs='kubectl get service'
-alias kgd='kubectl get deployment'
-alias kgc='kubectl get config'
-alias kgr='kubectl get rc'
+. "$HOME/.aliases.sh"

@@ -298,11 +298,11 @@ shell:
   args:
     - -u # force UTF-8 in tmux
     - new-session
-    - /usr/bin/fish
+    - /bin/zsh
     - ;
     - set-option
     - default-command
-    - 'exec /usr/bin/fish'
+    - 'exec /bin/zsh'
 
 # Key bindings
 #

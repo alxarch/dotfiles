@@ -3,6 +3,7 @@
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 # QT
 export QT_QPA_PLATFORMTHEME="qt5ct"
+
 # Fix atom trash error
 export ELECTRON_TRASH=gio
 

@@ -33,9 +33,7 @@ fi
 # Nix
 #
 
-if [ -d "$HOME/.nix-profile" ]; then
-	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-fi
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi # added by Nix installer
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
@@ -62,20 +60,6 @@ fi
 if [ -d "$HOME/.cargo/bin" ]; then
 	export PATH="$HOME/.cargo/bin:$PATH"
 fi
-
-
-#
-# Editors
-#
-
-export EDITOR='vim'
-
-#
-# Less
-#
-
-export PAGER='less'
-
 
 #
 # Temporary Files

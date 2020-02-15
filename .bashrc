@@ -16,3 +16,5 @@ alias dotfiles='GIT_WORK_TREE="$HOME" GIT_DIR="$HOME/.dotfiles" git'
 export NVM_DIR="$HOME/.local/opt/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. "$HOME/.aliases.sh"
