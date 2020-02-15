@@ -6,6 +6,21 @@
 #
 
 #
+# Paths
+#
+
+# Set the list of directories that Zsh searches for programs.
+path=(
+  /usr/local/{bin,sbin}
+  $path
+)
+
+. "$HOME/.profile"
+
+# Ensure path arrays do not contain duplicates.
+typeset -gU cdpath fpath mailpath path
+
+#
 # Browser
 #
 
@@ -38,68 +53,57 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-if [ -d "$HOME/.local/bin" ]; then
-	export PATH="$HOME/.local/bin:$PATH"
+#
+# Google Cloud SDK
+#
+if [ -z "$GOOGLE_CLOUD_SDK_ROOT" ]; then
+	GOOGLE_CLOUD_SDK_ROOT="$HOME/.local/opt/google-cloud-sdk"
+fi
+if [ -d "$GOOGLE_CLOUD_SDK_ROOT" ]; then
+	export GOOGLE_CLOUD_SDK_ROOT
+	# The next line updates PATH for the Google Cloud SDK.
+	source "$GOOGLE_CLOUD_SDK_ROOT/path.zsh.inc"
+	# The next line enables shell command completion for gcloud.
+	source "$GOOGLE_CLOUD_SDK_ROOT/completion.zsh.inc"
 fi
 
-# Go
-
-export GOPATH="$HOME/go"
-if [ -d "$GOPATH/bin" ]; then
-	export PATH="$GOPATH/bin:$PATH"
+# Kubernetes
+if [ -x "$(which kubectl)" ]; then
+	source <(kubectl completion zsh) # Enable command completion for kubernetes.
 fi
 
-# Ruby
-
-if [ -x "$(which gem)" ]; then
-	export PATH="$(ruby -r rubygems -e 'print Gem.path.map{|p| "#{p}/bin"}.join ":"'):$PATH"
-fi
-
-# Rust
-
-if [ -d "$HOME/.cargo/bin" ]; then
-	export PATH="$HOME/.cargo/bin:$PATH"
-fi
 
 #
-# Nix
-#
-
-if [ -d "$HOME/.nix-profile" ]; then
-	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-fi
-
 # direnv
-if [ -x direnv ]; then
+#
+if [ -x "$(which direnv)" ]; then
 	eval "$(direnv hook zsh)"
 fi
 
-
-#
-# Language
-#
-
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
+# nvm
+if [ -z "$NVM_DIR" ]; then
+	NVM_DIR="$HOME/.local/opt/nvm"
 fi
 
-#
-# Paths
-#
+if [ -d "$NVM_DIR" ]; then
+	export NVM_DIR
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
-# Ensure path arrays do not contain duplicates.
-typeset -gU cdpath fpath mailpath path
+# FZF
+. /usr/share/fzf/key-bindings.zsh
+. /usr/share/fzf/completion.zsh
+
+# Gitignore alias
+function gign() { curl -L -s "https://www.gitignore.io/api/$@" ;}
+
 
 # Set the the list of directories that cd searches.
 # cdpath=(
 #   $cdpath
 # )
 
-# Set the list of directories that Zsh searches for programs.
-path=(
-  /usr/local/{bin,sbin}
-  $path
-)
 
 
 #

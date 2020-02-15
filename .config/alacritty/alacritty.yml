@@ -297,6 +297,12 @@ shell:
   program: /usr/bin/tmux
   args:
     - -u # force UTF-8 in tmux
+    - new-session
+    - /usr/bin/fish
+    - ;
+    - set-option
+    - default-command
+    - 'exec /usr/bin/fish'
 
 # Key bindings
 #

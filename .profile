@@ -17,13 +17,58 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 #
+# Language
+#
+
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
+fi
+
+
+#
 # Paths
 #
+
+#
+# Nix
+#
+
+if [ -d "$HOME/.nix-profile" ]; then
+	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# Go
+
+if [ -d "$HOME/go/src" ]; then
+	export GOPATH="$HOME/go"
+	if [ -d "$GOPATH/bin" ]; then
+		export PATH="$GOPATH/bin:$PATH"
+	fi
+fi
+
+# Ruby
+
+if [ -x "$(which gem)" ]; then
+	export PATH="$(ruby -r rubygems -e 'print Gem.path.map{|p| "#{p}/bin"}.join ":"'):$PATH"
+fi
+
+# Rust
+
+if [ -d "$HOME/.cargo/bin" ]; then
+	export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+
+#
+# Editors
+#
+
+export EDITOR='vim'
 
 #
 # Less

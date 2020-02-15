@@ -1,75 +1,25 @@
 #
 # Executes commands at the start of an interactive session.
 #
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-# fi
-#
-
-
 
 source <(antibody init)
-# antibody bundle zsh-users/zsh-completions
-antibody bundle sorin-ionescu/prezto folder:modules/git # git shell tools
-antibody bundle zsh-users/zsh-syntax-highlighting # syntax highlight
+antibody bundle ohmyzsh/ohmyzsh path:plugins/gitfast # git shell tools
 antibody bundle akz92/clean # clean theme
-# antibody bundle danihodovic/steeef
+antibody bundle zsh-users/zsh-completions # completions
+antibody bundle zsh-users/zsh-syntax-highlighting # syntax highlight
 
-autoload -U compinit && compinit
+autoload -Uz compinit
+autoload -Uz bashcompinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+	bashcompinit;
+else
+	compinit -C;
+fi
 
 # Edit commandline in vim
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
-
-# FZF
-. /usr/share/fzf/key-bindings.zsh
-. /usr/share/fzf/completion.zsh
-
-
-# NVM
-#
-# define a function to init nvm
-nvminit () {
-	if [ -z "$NVM_DIR" ]; then
-		export NVM_DIR="$HOME/.nvm"
-		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-	fi
-}
-
-alias scl='sudo systemctl'
-
-# Google Cloud SDK
-#
-# define a function to init google-cloud-sdk tools
-gclinit () {
-	if [ -z "$GCL_DIR" ]; then
-		export GCL_DIR="$HOME/google-cloud-sdk"
-		# The next line updates PATH for the Google Cloud SDK.
-		source "$GCL_DIR/path.zsh.inc"
-		# The next line enables shell command completion for gcloud.
-		source "$GCL_DIR/completion.zsh.inc"
-	fi
-	# Kubernetes
-	source <(kubectl completion zsh) # Enable command completion for kubernetes.
-	# Kubernetes aliases
-	alias kcl='kubectl'
-	alias kCf='kubectl create -f'
-	alias kAf='kubectl apply -f'
-	alias kDf='kubectl delete -f'
-	alias kgp='kubectl get pod -o wide'
-	alias kgs='kubectl get service'
-	alias kgd='kubectl get deployment'
-	alias kgc='kubectl get config'
-	alias kgr='kubectl get rc'
-}
-
-# Gitignore alias
-function gign() { curl -L -s "https://www.gitignore.io/api/$@" ;}
 
 # HISTORY
 export HISTFILE=~/.zhistory
@@ -91,16 +41,29 @@ setopt HIST_BEEP
 
 setopt PROMPT_SUBST
 
-source $HOME/.homesick/repos/homeshick/homeshick.sh
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+# source $HOME/.homesick/repos/homeshick/homeshick.sh
+# fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 # Enable dynamic colors
-source $HOME/.dynamic-colors/completions/dynamic-colors.zsh
-export PATH="$PATH:$HOME/.dynamic-colors/bin"
-alias dcl='dynamic-colors switch solarized-light-desaturated'
-alias dcd='dynamic-colors switch solarized-dark'
+# source $HOME/.dynamic-colors/completions/dynamic-colors.zsh
+# export PATH="$PATH:$HOME/.dynamic-colors/bin"
+# alias dcl='dynamic-colors switch solarized-light-desaturated'
+# alias dcd='dynamic-colors switch solarized-dark'
 
 # Avoid mistakes with glob patterns
 alias rm='rm -I'
-alias dotfiles='git --git-dir=$HOME/.dotgit --work-tree=$HOME'
 
+# Handle dotfiles
+alias dotfiles='GIT_DIR="$HOME/.dotfiles" GIT_WORK_TREE="$HOME" git'
+alias scl='sudo systemctl'
+
+# Kubernetes aliases
+alias kcl='kubectl'
+alias kCf='kubectl create -f'
+alias kAf='kubectl apply -f'
+alias kDf='kubectl delete -f'
+alias kgp='kubectl get pod -o wide'
+alias kgs='kubectl get service'
+alias kgd='kubectl get deployment'
+alias kgc='kubectl get config'
+alias kgr='kubectl get rc'
