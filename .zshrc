@@ -39,6 +39,9 @@ fi
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Automatically handle urls
+autoload -Uz bracketed-paste-url-magic
+zle -N bracketed-paste bracketed-paste-url-magic
 
 # HISTORY
 export HISTFILE=~/.zhistory
