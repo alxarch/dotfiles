@@ -20,3 +20,7 @@ alias dotfiles='GIT_DIR="$HOME/.dotfiles" GIT_WORK_TREE="$HOME" git'
 
 alias sys='sudo systemctl'
 alias kub='kubectl'
+
+if [ -x "$(which mpv)" ]; then
+	alias peerflix='peerflix --mpv'
+fi
