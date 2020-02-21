@@ -79,5 +79,7 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-[[ -z "$DISPLAY" &&  "$XDG_VTNR" -eq "1" ]] && XSESSION=i3 startx
-[[ -z "$DISPLAY" &&  "$XDG_VTNR" -eq "2" ]] && XSESSION=kde startx
+case "$DISPLAY$TMUX$XDG_VTNR" in
+	"1" ) XSESSION=i3 startx;;
+	"2" ) XSESSION=kde startx;;
+esac
