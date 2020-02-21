@@ -19,6 +19,7 @@ if exists('*minpac#init')
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 	call minpac#add('mattn/webapi-vim')
+
 	" Syntax checking hacks for vim
 	call minpac#add('vim-syntastic/syntastic')
 
@@ -56,7 +57,7 @@ if exists('*minpac#init')
 	" Plugin 'ervandew/supertab'
 	" Plugin 'itchyny/lightline.vim'
 	" Plugin 'shime/vim-livedown'
-	call minpac#add('christoomey/vim-tmux-navigator')
+	" call minpac#add('christoomey/vim-tmux-navigator')
 	" Plugin 'tpope/vim-repeat'
 	" Plugin 'tpope/vim-commentary'
 
@@ -87,8 +88,9 @@ endif
 " Define user commands for updating/cleaning the plugins.
 " Each of them loads minpac, reloads .vimrc to register the
 " information of plugins, then performs the task.
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 
 imap jj <Esc>
 
