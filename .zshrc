@@ -68,13 +68,13 @@ if [ -d /usr/share/fzf ]; then
 	. /usr/share/fzf/completion.zsh
 fi
 
-if [ -x "$(which antibody)" ]; then
+if (( $#commands[antibody] )); then
 	source <(antibody init)
 	antibody bundle ohmyzsh/ohmyzsh path:plugins/gitfast # git shell tools
 	antibody bundle akz92/clean # clean theme
 	antibody bundle zsh-users/zsh-completions # completions
 	antibody bundle zsh-users/zsh-syntax-highlighting # syntax highlight
-	if [ -x "$(which nix-env)" ]; then
+	if (( $#commands[nix-env] )); then
 		antibody bundle spwhitt/nix-zsh-completions.git
 	fi
 fi
